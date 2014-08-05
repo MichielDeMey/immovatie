@@ -1,0 +1,201 @@
+<!-- Import Polymer -->
+<link rel="import" href="../../components/polymer/polymer.html">
+<script src="//cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+<!-- Define your custom element -->
+<polymer-element name="immo-card" attributes="intent, cover, price, type, place, bedrooms, surface, description">
+
+<template>
+
+  <style>
+    .card__container {
+      width: 260px;
+      height: 420px;
+      background: white;
+
+      border-radius: 4px;
+      background: #FFFFFF;
+      box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.20);
+
+      font-family: Lato;
+
+      position: relative;
+
+      font-size: 10px;
+    }
+
+    .rent .info__price {
+      background: #1ABC9C;
+    }
+
+    .buy .info__price {
+      background: #F1C40F;
+    }
+
+    .card__image {
+      height: 165px;
+      width: 100%;
+
+      background-size: cover;
+
+      position: relative;
+
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+    }
+
+    .info__price {
+      border-radius: 100px;
+      background: #1ABC9C;
+
+      font-size: 14px;
+      color: #FFFFFF;
+      line-height: 15px;
+
+      display: inline-block;
+      position: absolute;
+
+      padding: 8px 20px;
+
+      -webkit-transform: translateX(-50%);
+      left: 50%;
+
+      bottom: -15px;
+    }
+
+    .info__price:first-letter {
+      letter-spacing: 3px;
+    }
+
+    .card__info {
+      padding: 32px 8% 0px 8%;
+    }
+
+    .info__type, .info__place {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      max-width: 50%;
+      text-transform: capitalize;
+    }
+
+    .info__type {
+      font-size: 14px;
+      color: #5C5C5C;
+
+      float: left;
+    }
+
+    .info__place {
+      font-size: 12px;
+      color: #A5A5A5;
+
+      float: right;
+    }
+
+    .info__description {
+      font-size: 12px;
+      line-height: 1.5em;
+      color: #A5A5A5;
+
+      margin-top: 30px;
+
+      max-height: 130px;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+
+      clear: both;
+    }
+
+    .info__description.empty {
+      background-image: url('fake_description.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 130px;
+    }
+
+    .info__meta {
+      display: table;
+      border-top: solid 1px #E8E8E8;
+      width: 100%;
+
+      position: absolute;
+      bottom: 13px;
+
+      height: 37px;
+
+      width: 90%;
+
+      margin: 0 5%;
+    }
+
+    .meta__bedrooms, .meta__surface {
+      vertical-align: bottom;
+      text-align: center;
+    }
+
+    .meta__bedrooms {
+      border-right: solid 1px #E8E8E8;
+      display: table-cell;
+    }
+
+    .meta__surface {
+      display: table-cell;
+    }
+
+    .meta__value, .meta__label {
+      display: block;
+    }
+
+    .meta__value {
+      font-size: 13px;
+      color: #5C5C5C;
+    }
+
+    .meta__label {
+      font-size: 11px;
+      color: #A5A5A5;
+    }
+
+  </style>
+
+  <div class="card__container {{intent}}">
+
+    <div class="card__image" style="background-image: url({{cover}});">
+      <div class="info__price">{{price | currency}}</div>
+    </div>
+
+    <div class="card__info">
+
+      <div class="info__type">{{type}}</div>
+
+      <div class="info__place">{{place}}</div>
+
+      <div class="info__description {{description | descriptionClass}}">
+        {{description || ''}}
+      </div>
+
+    </div>
+
+    <div class="info__meta">
+
+      <div class="meta__bedrooms">
+        <span class="meta__value">{{bedrooms | bedroomsFilter}}</span>
+        <span class="meta__label">slaapkamer{{ bedrooms > 1 ? 's': '' }}</span>
+      </div>
+
+      <div class="meta__surface">
+        <span class="meta__value">{{surface | surfaceFilter}}</span>
+        <span class="meta__label">oppervlakte</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</template>
+<script src="immo-card.js"></script>
+</polymer-element>

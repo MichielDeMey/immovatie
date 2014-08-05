@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Immovatie</title>
+
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- platform -->
+  <script src="components/platform/platform.js"></script>
+
+  <!-- core components -->
+  <link rel="import" href="components/core-ajax/core-ajax.html">
+  <link rel="import" href="components/core-input/core-input.html">
+  <link rel="import" href="components/core-icons/core-icons.html">
+
+  <!-- paper components -->
+  <link rel="import" href="components/paper-input/paper-input.html">
+  <link rel="import" href="components/paper-button/paper-button.html">
+
+  <!-- custom components -->
+  <link rel="import" href="components/immo-card/immo-card.html">
+
+  <style>
+
+    body { font-family: 'Lato'; }
+
+    immo-card {
+      float: left;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <core-ajax auto handleAs="json"></core-ajax>
+
+  <form>
+    <fieldset>
+      Ik wil een
+      <paper-input name="type" label="apartment" floatingLabel></paper-input>
+      <paper-input name="intent" label="rent" floatingLabel></paper-input>
+      nabij
+      <paper-input name="place" label="place" floatingLabel></paper-input>
+      <paper-button label="Zoeken" icon="search"></paper-button>
+    </fieldset>
+  </form>
+
+  <template repeat="{{collection}}">
+
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+
+  </template>
+
+</body>
+<script>
+
+  window.addEventListener('polymer-ready', function(e) {
+
+    var ajax = document.querySelector('core-ajax');
+
+    ajax.addEventListener('core-response', function(e) {
+      document.querySelector('template').model = {
+        collection: this.response
+      };
+    });
+
+    document.querySelector('paper-button').addEventListener('click', handleSearch);
+
+    function handleSearch(e) {
+
+      var type = document.querySelector('paper-input[name=type]').value ||
+                'apartments';
+
+      var intent = document.querySelector('paper-input[name=intent]').value ||
+                  'rent';
+
+      var place = document.querySelector('paper-input[name=place]').value ||
+                  '9000';
+
+      var url = "http://immovatie.michiel.io/api/" + type + "/" + intent + "/search?zip=" + place + "&country=be";
+
+      ajax.url = url;
+
+    }
+
+  });
+</script>
+</html>
