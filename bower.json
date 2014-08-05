@@ -16,7 +16,10 @@
   ],
   "dependencies": {
     "polymer": "~0.3.3",
-    "jquery": "~2.1.1",
-    "core-ajax": "Polymer/core-ajax#~0.3.4"
+    "core-ajax": "Polymer/core-ajax#~0.3.4",
+    "core-input": "Polymer/core-input#~0.3.4",
+    "core-icons": "Polymer/core-icons#~0.3.4",
+    "paper-input": "Polymer/paper-input#~0.3.4",
+    "paper-button": "Polymer/paper-button#~0.3.4"
   }
 }
