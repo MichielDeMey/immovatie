@@ -1,8 +1,9 @@
 {
-  "name": "immotep",
+  "name": "immovatie",
   "version": "0.1.0",
   "authors": [
-    "Gilles De Mey <gilles.de.mey@gmail.com>"
+    "Gilles De Mey <gilles.de.mey@gmail.com>",
+    "Michiel De Mey <de.mey.michiel@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "http://demey.io",
