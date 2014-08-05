@@ -91,7 +91,7 @@
       var place = document.querySelector('paper-input[name=place]').value ||
                   '9000';
 
-      var url = "http://immovatie.michiel.io/api/" + type + "/" + intent + "/search?zip=" + place + "&country=be";
+      var url = "http://immovatie.michiel.io/api/" + type + "/" + intent + "/search?zip=" + place + "&country=be&sort=price";
 
       ajax.url = url;
 
