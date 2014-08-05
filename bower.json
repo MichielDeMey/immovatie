@@ -1,8 +1,9 @@
 {
-  "name": "immotep",
+  "name": "immovatie",
   "version": "0.1.0",
   "authors": [
-    "Gilles De Mey <gilles.de.mey@gmail.com>"
+    "Gilles De Mey <gilles.de.mey@gmail.com>",
+    "Michiel De Mey <de.mey.michiel@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "http://demey.io",
@@ -16,7 +17,10 @@
   ],
   "dependencies": {
     "polymer": "~0.3.3",
-    "jquery": "~2.1.1",
-    "core-ajax": "Polymer/core-ajax#~0.3.4"
+    "core-ajax": "Polymer/core-ajax#~0.3.4",
+    "core-input": "Polymer/core-input#~0.3.4",
+    "core-icons": "Polymer/core-icons#~0.3.4",
+    "paper-input": "Polymer/paper-input#~0.3.4",
+    "paper-button": "Polymer/paper-button#~0.3.4"
   }
 }
