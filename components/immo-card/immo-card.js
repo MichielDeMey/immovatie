@@ -1,25 +1,24 @@
 Polymer('immo-card', {
 
   descriptionClass: function(val) {
-    return val === null || val === '' || typeof val === "undefined" ? 'empty' : '';
+    return _.isEmpty(val) ? 'empty' : '';
   },
 
   surfaceFilter: function(val) {
-    return !isNaN(parseInt(val)) ? val + 'm²' : '—';
+    return _.isNumber(val) ? val + 'm²' : '—';
   },
 
   bedroomsFilter: function(val) {
-    return !isNaN(parseInt(val)) ? val : '—';
+    return _.isNumber(val) ? val : '—';
   },
 
   currency: function(val) {
 
-    if (!isNaN(parseInt(val)))
+    if (_.isNumber(val))
       return accounting.formatMoney(parseInt(val), "€", 0, ".", ",");
     else
       return '€—';
   },
-
   // Fires when an instance of the element is created
   created: function() {
 

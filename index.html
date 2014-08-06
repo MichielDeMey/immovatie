@@ -36,8 +36,6 @@
 </head>
 <body>
 
-  <core-ajax auto handleAs="json"></core-ajax>
-
   <form>
     <fieldset>
       Ik wil een
@@ -47,6 +45,7 @@
       <paper-input name="place" label="place" floatingLabel></paper-input>
       <paper-button label="Zoeken" icon="search"></paper-button>
     </fieldset>
+    <core-ajax auto handleAs="json"></core-ajax>
   </form>
 
   <template repeat="{{collection}}">

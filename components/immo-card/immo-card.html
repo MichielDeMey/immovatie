@@ -1,6 +1,9 @@
 <!-- Import Polymer -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 
 <!-- Define your custom element -->
@@ -34,15 +37,24 @@
     }
 
     .card__image {
-      height: 165px;
+      height: 38%;
       width: 100%;
 
       background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: #F1F1F1;
 
       position: relative;
 
       border-top-right-radius: 4px;
       border-top-left-radius: 4px;
+    }
+
+    .card__image.empty {
+      background-image: url('camera.svg');
+      background-size: initial;
+      background-size: 50% 50%;
     }
 
     .card__image .image__hover {
@@ -195,7 +207,7 @@
 
   <div class="card__container {{intent}}">
 
-    <div class="card__image" style="background-image: url({{cover}});">
+    <div class="card__image {{ isEmpty(cover) ? 'empty' : '' }}" style="background-image: url({{cover}});">
       <div class="image__hover">
         <div class="hover__zoom"></div>
       </div>
@@ -218,7 +230,7 @@
 
       <div class="meta__bedrooms">
         <span class="meta__value">{{bedrooms | bedroomsFilter}}</span>
-        <span class="meta__label">slaapkamer{{ bedrooms > 1 ? 's': '' }}</span>
+        <span class="meta__label">slaapkamer{{ !bedrooms || bedrooms > 1 ? 's': '' }}</span>
       </div>
 
       <div class="meta__surface">
