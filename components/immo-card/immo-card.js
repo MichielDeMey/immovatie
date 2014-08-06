@@ -24,6 +24,10 @@ Polymer('immo-card', {
 
   },
 
+  isEmpty: function(val) {
+    return _.isEmpty(val);
+  },
+
   // Fires when the "<polymer-element>" has been fully prepared
   ready: function() {},
 
