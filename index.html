@@ -21,6 +21,9 @@
   <!-- custom components -->
   <link rel="import" href="components/immo-card/immo-card.html">
 
+  <!-- Vendor -->
+  <script src="bower_components/rebound-js/rebound.min.js"></script>
+
   <style>
 
     body { font-family: 'Lato'; }
@@ -66,6 +69,7 @@
 
 </body>
 <script>
+  window.springSystem = new rebound.SpringSystem();
 
   window.addEventListener('polymer-ready', function(e) {
 

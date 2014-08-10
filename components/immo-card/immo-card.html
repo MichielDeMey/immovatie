@@ -13,7 +13,7 @@
 
   <style>
     .card__container {
-      width: 260px;
+      width: 240px;
       height: 420px;
       background: white;
 
@@ -26,6 +26,20 @@
       position: relative;
 
       font-size: 10px;
+
+      overflow: hidden;
+    }
+
+    .card__container.full.info__meta {
+      -webkit-transform: translateY(-100%);
+    }
+
+    .card__wrapper {
+      position: relative;
+
+      width: 100%;
+      height: 62%;
+      max-width: 260px;
     }
 
     .rent .info__price {
@@ -161,6 +175,9 @@
     }
 
     .info__meta {
+      transition: -webkit-transform 250ms;
+      -webkit-transform: translateY(0);
+
       display: table;
       border-top: solid 1px #E8E8E8;
       width: 100%;
@@ -205,37 +222,41 @@
 
   </style>
 
-  <div class="card__container {{intent}}">
+  <div id="container" class="card__container {{intent}}">
 
-    <div class="card__image {{ isEmpty(cover) ? 'empty' : '' }}" style="background-image: url({{cover}});">
-      <div class="image__hover">
-        <div class="hover__zoom"></div>
-      </div>
-      <div class="info__price">{{price | currency}}</div>
-    </div>
-
-    <div class="card__info">
-
-      <div class="info__type">{{type}}</div>
-
-      <div class="info__place">{{place}}</div>
-
-      <div class="info__description {{description | descriptionClass}}">
-        {{description || ''}}
+     <div id="image" class="card__image {{ _.isEmpty(cover) ? 'empty' : '' }}" style="background-image: url({{cover}});">
+        <div class="image__hover">
+          <div class="hover__zoom"></div>
+        </div>
+        <div class="info__price">{{price | currency}}</div>
       </div>
 
-    </div>
+    <div class="card__wrapper">
 
-    <div class="info__meta">
+      <div class="card__info">
 
-      <div class="meta__bedrooms">
-        <span class="meta__value">{{bedrooms | bedroomsFilter}}</span>
-        <span class="meta__label">slaapkamer{{ !bedrooms || bedrooms > 1 ? 's': '' }}</span>
+        <div class="info__type">{{type}}</div>
+
+        <div class="info__place">{{place}}</div>
+
+        <div class="info__description {{description | descriptionClass}}">
+          {{description || ''}}
+        </div>
+
       </div>
 
-      <div class="meta__surface">
-        <span class="meta__value">{{surface | surfaceFilter}}</span>
-        <span class="meta__label">oppervlakte</span>
+      <div class="info__meta">
+
+        <div class="meta__bedrooms">
+          <span class="meta__value">{{bedrooms | bedroomsFilter}}</span>
+          <span class="meta__label">slaapkamer{{ !bedrooms || bedrooms > 1 ? 's': '' }}</span>
+        </div>
+
+        <div class="meta__surface">
+          <span class="meta__value">{{surface | surfaceFilter}}</span>
+          <span class="meta__label">oppervlakte</span>
+        </div>
+
       </div>
 
     </div>
