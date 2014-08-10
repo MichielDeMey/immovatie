@@ -19,25 +19,47 @@
   <link rel="import" href="bower_components/paper-button/paper-button.html">
 
   <!-- custom components -->
+  <link rel="import" href="components/immo-overlay/immo-overlay.html">
   <link rel="import" href="components/immo-card/immo-card.html">
 
   <!-- Vendor -->
   <script src="bower_components/rebound-js/rebound.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
   <style>
 
     body { font-family: 'Lato'; }
 
-    immo-card {
+    .container {
+      width: 100%;
+
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+
+    .container:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    immo-card, .immo-card--ghost {
       float: left;
-      margin-left: 20px;
+      margin-left: 5px;
+      margin-right: 5px;
       margin-top: 20px;
+
+      width: 240px;
+      height: 420px;
     }
 
   </style>
 
 </head>
 <body>
+
+  <immo-overlay></immo-overlay>
 
   <form>
     <fieldset>
@@ -51,8 +73,35 @@
     <core-ajax auto handleAs="json"></core-ajax>
   </form>
 
-  <template repeat="{{collection}}">
+  <div class="container">
+    <template repeat="{{collection}}">
 
+      <immo-card
+        intent="{{intent}}"
+        cover="{{photo}}"
+        price="{{price}}"
+        type="{{type}}"
+        place="{{location}}"
+        bedrooms="{{bedrooms}}"
+        surface="{{surface}}"
+        description="{{description}}"
+      >
+      </immo-card>
+
+    </template>
+  </div>
+
+  <!-- <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
     <immo-card
       intent="{{intent}}"
       cover="{{photo}}"
@@ -64,8 +113,116 @@
       description="{{description}}"
     >
     </immo-card>
-
-  </template>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card>
+    <immo-card
+      intent="{{intent}}"
+      cover="{{photo}}"
+      price="{{price}}"
+      type="{{type}}"
+      place="{{location}}"
+      bedrooms="{{bedrooms}}"
+      surface="{{surface}}"
+      description="{{description}}"
+    >
+    </immo-card> -->
 
 </body>
 <script>

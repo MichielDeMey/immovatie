@@ -1,0 +1,43 @@
+<!-- Import Polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-signals/core-signals.html">
+
+<!-- Define your custom element -->
+<polymer-element name="immo-overlay" attributes="">
+
+  <template>
+
+    <style>
+      :host {
+        transition: opacity 250ms;
+
+        display: none;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 100%;
+
+        z-index: 80;
+
+        background-color: #000;
+        opacity: 0;
+      }
+
+      :host(.active) {
+        display: block;
+      }
+
+      :host(.open) {
+        opacity: .8;
+      }
+    </style>
+
+    <core-signals on-core-signal-overlay="{{overlaySignal}}"></core-signals>
+
+  </template>
+  
+  <script src="immo-overlay.js"></script>
+</polymer-element>
