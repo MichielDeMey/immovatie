@@ -22,6 +22,10 @@ Polymer('immo-card', {
   // Fires when an instance of the element is created
   created: function() {},
 
+  isEmpty: function(val) {
+    return _.isEmpty(val);
+  },
+
   // Fires when the "<polymer-element>" has been fully prepared
   ready: function() {},
 
