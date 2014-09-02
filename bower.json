@@ -22,6 +22,11 @@
     "core-icons": "Polymer/core-icons#~0.3.4",
     "paper-input": "Polymer/paper-input#~0.3.4",
     "paper-button": "Polymer/paper-button#~0.3.4",
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "rebound-js": "~0.0.7",
+    "core-signals": "Polymer/core-signals#~0.4.0"
+  },
+  "resolutions": {
+    "polymer": ">=0.4.0 <1.0.0"
   }
 }
